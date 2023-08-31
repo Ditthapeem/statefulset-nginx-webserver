@@ -22,8 +22,8 @@ spec:
         - name: image.tag
           value: latest
     path: helm/nginx-webserver
-    repoURL: 'https://github.com/HuskyIsHere/nginx-webserver.git'
-    targetRevision: latest
+    repoURL: 'https://github.com/HuskyIsHere/statefulset-nginx-webserver.git'
+    targetRevision: main
   project: default
   syncPolicy:
     automated:
