@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Application
+metadata:
+  name: nginx-webserver
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: nginx-webserver=ghcr.io/huskyishere/nginx-webserver:latest
+    argocd-image-updater.argoproj.io/itch-emapi-adapter-service.update-strategy: digest
+    argocd-image-updater.argoproj.io/itch-emapi-adapter-service.pull-secret: secret:argocd/argo-secret#github-package
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+
+spec:
+  destination:
+    name: ''
+    namespace: default
+    server: 'https://kubernetes.default.svc'
+  source:
+    helm:
+      releaseName: nginx-webserver
+      parameters:
+        - name: image.tag
+          value: latest
+    path: helm/nginx-webserver
+    repoURL: 'https://github.com/HuskyIsHere/nginx-webserver.git'
+    targetRevision: latest
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
