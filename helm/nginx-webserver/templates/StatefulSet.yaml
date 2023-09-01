@@ -13,6 +13,8 @@ spec:
       labels:
         app: nginx-webserver
     spec:
+      imagePullSecrets:
+        - name: github-secret
       containers:
         - name: nginx
           image: ghcr.io/huskyishere/nginx-webserver:latest  # Replace with your image
