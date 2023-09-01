@@ -13,11 +13,14 @@ spec:
       labels:
         app: nginx-webserver
     spec:
+      {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
-        - name: github-secret
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       containers:
-        - name: nginx
-          image: ghcr.io/huskyishere/nginx-webserver:latest  # Replace with your image
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag}}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 80
           volumeMounts:

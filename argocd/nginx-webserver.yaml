@@ -5,8 +5,8 @@ metadata:
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/image-list: nginx-webserver=ghcr.io/huskyishere/nginx-webserver:latest
-    argocd-image-updater.argoproj.io/itch-emapi-adapter-service.update-strategy: digest
-    argocd-image-updater.argoproj.io/itch-emapi-adapter-service.pull-secret: secret:argocd/argo-secret#github-package
+    argocd-image-updater.argoproj.io/nginx-webserver.update-strategy: digest
+    argocd-image-updater.argoproj.io/nginx-webserver.pull-secret: secret:argocd/argo-secret#github-package
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 
