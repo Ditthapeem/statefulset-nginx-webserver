@@ -13,14 +13,11 @@ spec:
       labels:
         app: nginx-webserver
     spec:
-      {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        - name: github-secret
       containers:
-        - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag}}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+        - name: nginx
+          image: {{ .Values.image.repository }}: {{ .Values.image.tag }}
           ports:
             - containerPort: 80
           volumeMounts:
