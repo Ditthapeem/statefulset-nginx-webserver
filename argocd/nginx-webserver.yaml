@@ -4,9 +4,13 @@ metadata:
   name: nginx-webserver
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: nginx-webserver=ghcr.io/huskyishere/nginx-webserver:latest
+    argocd-image-updater.argoproj.io/image-list: |
+      nginx-webserver=ghcr.io/huskyishere/nginx-webserver:latest,
+      nginx-webserver2=ghcr.io/huskyishere/nginx-webserver2:latest
     argocd-image-updater.argoproj.io/nginx-webserver.update-strategy: digest
     argocd-image-updater.argoproj.io/nginx-webserver.pull-secret: secret:argocd/argo-secret#github-package
+    argocd-image-updater.argoproj.io/nginx-webserver2.update-strategy: digest
+    argocd-image-updater.argoproj.io/nginx-webserver2.pull-secret: secret:argocd/argo-secret#github-package
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 
@@ -23,7 +27,7 @@ spec:
           value: latest
     path: helm/nginx-webserver
     repoURL: 'https://github.com/HuskyIsHere/statefulset-nginx-webserver.git'
-    targetRevision: main
+    targetRevision: two-deployment
   project: default
   syncPolicy:
     automated:

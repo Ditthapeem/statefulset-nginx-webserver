@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: nginx-webserver2
+spec:
+  serviceName: nginx-webserver2
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-webserver2
+  template:
+    metadata:
+      labels:
+        app: nginx-webserver2
+    spec:
+      imagePullSecrets:
+        - name: github-secret
+      containers:
+        - name: nginx2
+          image: "{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}"
+          ports:
+            - containerPort: 82
+          volumeMounts:
+            - name: webserver2
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: webserver2
+          emptyDir: {}
