@@ -1,35 +1,29 @@
-# values.yaml
 
-# argocd-image-updater:
-#   image-list:  |
-#     nginx-webserver=ghcr.io/huskyishere/nginx-webserver:latest,
-#     nginx-webserver2=ghcr.io/huskyishere/nginx-webserver2:latest
-#   nginx-webserver:
-#     helm:
-#       image-name: nginx-webserver
-#       image-tag: latest
-#       repo-url: ghcr.io/huskyishere/nginx-webserver  
-#   nginx-webserver2:
-#     helm:
-#       image-name: nginx-webserver2
-#       image-tag: latest
-#       repo-url: ghcr.io/huskyishere/nginx-webserver2
+# image:
+#   tag: latest
 
-image:
+
+# statefulset:
+#   image:
+#     repository: ghcr.io/huskyishere/nginx-webserver
+#     pullPolicy: Always
+#     tag: latest
+
+# deployment:
+#   image: 
+#     repository: ghcr.io/huskyishere/nginx-webserver2
+#     pullPolicy: Always
+#     tag: latest
+
+# imagePullSecrets: 
+#   - name: github-packages
+
+nginx-webserver:
+  image: ghcr.io/huskyishere/nginx-webserver
+  pullPolicy: Always
   tag: latest
 
-
-statefulset:
-  image:
-    repository: ghcr.io/huskyishere/nginx-webserver
-    pullPolicy: Always
-    tag: latest
-
-deployment:
-  image: 
-    repository: ghcr.io/huskyishere/nginx-webserver2
-    pullPolicy: Always
-    tag: latest
-
-imagePullSecrets: 
-  - name: github-packages
+nginx-webserver2:
+  image: ghcr.io/huskyishere/nginx-webserver2
+  pullPolicy: Always
+  tag: latest  
