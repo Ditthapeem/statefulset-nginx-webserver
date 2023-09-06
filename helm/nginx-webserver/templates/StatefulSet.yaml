@@ -17,7 +17,7 @@ spec:
         - name: github-secret
       containers:
         - name: nginx
-          image: "{{ .Values.nginx-webserver.repository}}:{{ .Values.nginx-webserver.image-tag }}"
+          image: "{{ .Values.argocd-image-updater.nginx-webserver.helm.repo-url }}:{{ .Values.argocd-image-updater.nginx-webserver.helm.image-tag }}"
           ports:
             - containerPort: 80
           volumeMounts:
