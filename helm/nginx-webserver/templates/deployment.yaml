@@ -3,7 +3,6 @@ kind: Deployment
 metadata: 
   name: nginx-webserver2
 spec:
-  serviceName: nginx-webserver2
   replicas: 1
   selector:
     matchLabels:
