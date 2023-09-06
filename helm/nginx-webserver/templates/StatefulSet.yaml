@@ -1,28 +1,27 @@
 apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  name: nginx-webserver
+kind: Deployment
+metadata: 
+  name: nginx-webserver2
 spec:
-  serviceName: nginx-webserver
   replicas: 1
   selector:
     matchLabels:
-      app: nginx-webserver
+      app: nginx-webserver2
   template:
     metadata:
       labels:
-        app: nginx-webserver
+        app: nginx-webserver2
     spec:
       imagePullSecrets:
         - name: github-secret
       containers:
-        - name: nginx
-          image: "{{ .Values.argocd-image-updater.nginx-webserver.helm.repo-url }}:{{ .Values.argocd-image-updater.nginx-webserver.helm.image-tag }}"
+        - name: nginx2
+          image: "{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}"
           ports:
-            - containerPort: 80
+            - containerPort: 82
           volumeMounts:
-            - name: html-volume
+            - name: webserver2
               mountPath: /usr/share/nginx/html
       volumes:
-        - name: html-volume
+        - name: webserver2
           emptyDir: {}

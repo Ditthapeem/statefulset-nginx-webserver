@@ -1,41 +1,33 @@
 # values.yaml
 
-argocd-image-updater:
-  image-list:  |
-    nginx-webserver=ghcr.io/huskyishere/nginx-webserver:latest,
-    nginx-webserver2=ghcr.io/huskyishere/nginx-webserver2:latest
-  nginx-webserver:
-    helm:
-      image-name: nginx-webserver
-      image-tag: latest
-      repo-url: ghcr.io/huskyishere/nginx-webserver  
-  nginx-webserver2:
-    helm:
-      image-name: nginx-webserver2
-      image-tag: latest
-      repo-url: ghcr.io/huskyishere/nginx-webserver2
+# argocd-image-updater:
+#   image-list:  |
+#     nginx-webserver=ghcr.io/huskyishere/nginx-webserver:latest,
+#     nginx-webserver2=ghcr.io/huskyishere/nginx-webserver2:latest
+#   nginx-webserver:
+#     helm:
+#       image-name: nginx-webserver
+#       image-tag: latest
+#       repo-url: ghcr.io/huskyishere/nginx-webserver  
+#   nginx-webserver2:
+#     helm:
+#       image-name: nginx-webserver2
+#       image-tag: latest
+#       repo-url: ghcr.io/huskyishere/nginx-webserver2
 
 
 
-# nginx-webserver:
-#   repository: ghcr.io/huskyishere/nginx-webserver
-#   image-name: nginx-webserver
-#   image-tag: latest
-#   argocd-image-updater:
-#     image-name: nginx-webserver
-#     image-tag: latest
-#     update-strategy: semver
-#     repo-url: https://github.com/HuskyIsHere/nginx-webserver.git
+statefulset:
+  image:
+    repository: ghcr.io/huskyishere/nginx-webserver
+    pullPolicy: Always
+    tag: latest
 
-# nginx-webserver2:
-#   repository: ghcr.io/huskyishere/nginx-webserver2
-#   image-name: nginx-webserver2
-#   image-tag: latest
-#   argocd-image-updater:
-#     image-name: nginx-webserver2
-#     image-tag: latest
-#     update-strategy: semver
-#     repo-url: https://github.com/HuskyIsHere/nginx-webserver2.git
+deployment:
+  image: 
+    repository: ghcr.io/huskyishere/nginx-webserver2
+    pullPolicy: Always
+    tag: latest
 
 imagePullSecrets: 
   - name: github-packages
