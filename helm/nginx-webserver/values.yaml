@@ -1,17 +1,10 @@
-image:
-  tag: latest
+nginx-webserver:
+  image-name: ghcr.io/huskyishere/nginx-webserver
+  image-tag: latest
 
-statefulset:
-  image:
-    repository: ghcr.io/huskyishere/nginx-webserver
-    pullPolicy: Always
-    tag: latest
-
-deployment:
-  image: 
-    repository: ghcr.io/huskyishere/nginx-webserver2
-    pullPolicy: Always
-    tag: latest
+nginx-webserver2:
+  image-name: ghcr.io/huskyishere/nginx-webserver2
+  image-tag: latest
 
 imagePullSecrets: 
   - name: github-packages
