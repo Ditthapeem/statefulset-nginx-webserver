@@ -1,27 +1,28 @@
 apiVersion: apps/v1
-kind: Deployment
-metadata: 
-  name: nginx-webserver2
+kind: StatefulSet
+metadata:
+  name: nginx-webserver
 spec:
+  serviceName: nginx-webserver
   replicas: 1
   selector:
     matchLabels:
-      app: nginx-webserver2
+      app: nginx-webserver
   template:
     metadata:
       labels:
-        app: nginx-webserver2
+        app: nginx-webserver
     spec:
       imagePullSecrets:
         - name: github-secret
       containers:
-        - name: nginx2
-          image: "{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}"
+        - name: nginx
+          image: "{{ .Values.statefulset.image.repository }}:{{ .Values.statefulset.image.tag }}"
           ports:
-            - containerPort: 82
+            - containerPort: 80
           volumeMounts:
-            - name: webserver2
+            - name: html-volume
               mountPath: /usr/share/nginx/html
       volumes:
-        - name: webserver2
+        - name: html-volume
           emptyDir: {}
