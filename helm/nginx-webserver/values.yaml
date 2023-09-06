@@ -1,10 +1,20 @@
 nginx-webserver:
   image-name: ghcr.io/huskyishere/nginx-webserver
   image-tag: latest
+  argocd-image-updater:
+    image-name: nginx-webserver
+    image-tag: latest
+    update-strategy: semver
+    repo-url: https://github.com/HuskyIsHere/nginx-webserver.git
 
 nginx-webserver2:
   image-name: ghcr.io/huskyishere/nginx-webserver2
   image-tag: latest
+  argocd-image-updater:
+    image-name: nginx-webserver2
+    image-tag: latest
+    update-strategy: semver
+    repo-url: https://github.com/HuskyIsHere/nginx-webserver2.git
 
 imagePullSecrets: 
   - name: github-packages
