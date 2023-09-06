@@ -1,6 +1,7 @@
 nginx-webserver:
-  image-name: ghcr.io/huskyishere/nginx-webserver
-  image-tag: latest
+  repository: ghcr.io/huskyishere/nginx-webserver
+  name: nginx-webserver
+  tag: latest
   argocd-image-updater:
     image-name: nginx-webserver
     image-tag: latest
@@ -8,8 +9,9 @@ nginx-webserver:
     repo-url: https://github.com/HuskyIsHere/nginx-webserver.git
 
 nginx-webserver2:
-  image-name: ghcr.io/huskyishere/nginx-webserver2
-  image-tag: latest
+  repository: ghcr.io/huskyishere/nginx-webserver2
+  name: nginx-webserver2
+  tag: latest
   argocd-image-updater:
     image-name: nginx-webserver2
     image-tag: latest
