@@ -16,8 +16,8 @@ spec:
         - name: github-secret
       containers:
         - name: nginx2
-          # image: "{{ .Values.deployment.image.repository }}:{{ .Values.image.tag }}"
-          image: "{{ .Values.nginx-webserver2.image }}:{{ .Values.nginx-webserver2.tag }}"
+          image: "{{ .Values.deployment.image.repository }}:{{ .Values.image.tag }}"
+          # image: "{{ .Values.nginx-webserver2.image }}:{{ .Values.nginx-webserver2.tag }}"
           ports:
             - containerPort: 82
           volumeMounts:

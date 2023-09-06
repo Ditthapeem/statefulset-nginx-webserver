@@ -17,8 +17,8 @@ spec:
         - name: github-secret
       containers:
         - name: nginx
-          # image: "{{ .Values.statefulset.image.repository }}:{{ .Values.image.tag }}"
-          image: "{{ .Values.nginx-webserver.image }}:{{ .Values.nginx-webserver.tag }}"
+          image: "{{ .Values.statefulset.image.repository }}:{{ .Values.image.tag }}"
+          # image: "{{ .Values.nginx-webserver.image }}:{{ .Values.nginx-webserver.tag }}"
           ports:
             - containerPort: 80
           volumeMounts:
