@@ -6,7 +6,7 @@ statefulset:
 
 deployment:
   image: 
-    repository: 
+    repository: ghcr.io/huskyishere/nginx-webserver2
     pullPolicy: Always
     tag: latest
 
