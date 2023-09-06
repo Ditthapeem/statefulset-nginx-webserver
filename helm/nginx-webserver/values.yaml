@@ -1,3 +1,6 @@
+image:
+  tag: latest
+
 statefulset:
   image:
     repository: ghcr.io/huskyishere/nginx-webserver
