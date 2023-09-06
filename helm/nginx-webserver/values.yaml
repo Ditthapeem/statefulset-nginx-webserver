@@ -15,8 +15,8 @@
 #     pullPolicy: Always
 #     tag: latest
 
-# imagePullSecrets: 
-#   - name: github-packages
+imagePullSecrets: 
+  - name: github-packages
 
 nginx-webserver:
   image: ghcr.io/huskyishere/nginx-webserver
