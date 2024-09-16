@@ -1,5 +1,5 @@
 image:
-  repository: ghcr.io/huskyishere/nginx-webserver
+  repository: ghcr.io/ditthapeem/nginx-webserver
   pullPolicy: Always
   tag: latest
 
